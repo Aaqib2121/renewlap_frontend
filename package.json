@@ -3,6 +3,7 @@
   "proxy": "https://renewlap.onrender.com",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@chakra-ui/react": "^1.8.9",
     "@emotion/react": "^11.11.1",
