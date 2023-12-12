@@ -7,16 +7,21 @@ const About = () => {
     const Line = useRef(null);
     const text = useRef(null);
     useEffect(() => {
-                setTimeout(() =>{
-        Line.current.classList.add('lineon')
-        text.current.classList.add('titleon');
-        },5)
-
-
-        return () => {
-
+        const lineRef = Line.current;
+        const textRef = text.current;
+      
+        if (lineRef && textRef) {
+          setTimeout(() => {
+            lineRef.classList.add('lineon');
+            textRef.classList.add('titleon');
+          }, 5);
         }
-    },[])
+      
+        return () => {
+          // Cleanup logic if needed
+        };
+      }, []);
+      
     return (
         
 

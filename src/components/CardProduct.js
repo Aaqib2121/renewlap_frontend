@@ -67,7 +67,7 @@ const CardProduct = ({ product }) => {
             <HiShoppingCart className="iconFav" size="26" />
           ) : (
             <a
-            href={`https://wa.me/${product.whatsappNumber}`}
+            href={`${product.whatsappNumber}`}
             target="_blank"
             rel="noopener noreferrer"
           >

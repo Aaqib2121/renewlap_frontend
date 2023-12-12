@@ -36,8 +36,6 @@ import { BsArrowRightShort } from 'react-icons/bs';
 
 // ... rest of your code
 
-
-
 import { logout } from "../actions/userActions";
 import { keyword } from "color-convert";
 import Searchnav from "./Searchnav";
