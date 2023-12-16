@@ -108,9 +108,6 @@ nav {
   cursor: pointer;
   font-size: 0.9em;
 }
-.iconCart{
-  display: none;
-}
 .rightComp {
   align-items: center;
   display: flex;
@@ -277,17 +274,16 @@ nav {
 /*background Images */
 
 .slide:first-child {
-  background: url("https://wallpapers.com/images/featured/laptop-murjp1nk4lp1idlt.jpg") no-repeat center top/cover;
+  background: url("https://i.imgur.com/jJYOdBg.jpg") no-repeat center top/cover;
 }
-
 .slide:nth-child(2) {
-  background: url("https://cdn.thewirecutter.com/wp-content/media/2023/01/businesslaptops-2048px-0098-2x1-1.jpg") no-repeat center top/cover;
+  background: url("https://i.imgur.com/7rwaigw.jpg") no-repeat center top/cover;
 }
 .slide:nth-child(3) {
-  background: url("https://cdn.thewirecutter.com/wp-content/media/2022/10/laptopstopicpage-2048px-2102-2x1-1.jpg") no-repeat center top/cover;
+  background: url("https://i.imgur.com/3Obf6Tt.jpg") no-repeat center top/cover;
 }
 .slide:nth-child(4) {
-  background: url("https://c4.wallpaperflare.com/wallpaper/109/6/429/apple-download-best-hd-wallpaper-preview.jpg") no-repeat center top/cover;
+  background: url("https://i.imgur.com/laeEnPm.jpg") no-repeat center top/cover;
 }
 /*/////////////Categories Cards ///////////////*/
 .cards {
@@ -382,13 +378,13 @@ nav {
   right: 0;
 }
 .cardscg:first-child {
-  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdkRqJkpwP5TGu5fD8eJBcNj7s5kQstaYESbbqKqQgw4A3BZYyHo4nb9w8keBUYnvhUA0&usqp=CAU") no-repeat center top/cover;
+  background: url("https://i.imgur.com/ugsxgsY.jpg") no-repeat center top/cover;
 }
 .cardscg:nth-child(2) {
-  background: url("https://wallpapers.com/images/featured/laptop-murjp1nk4lp1idlt.jpg") no-repeat center top/cover;
+  background: url("https://i.imgur.com/roN4Tqt.jpg") no-repeat center top/cover;
 }
 .cardscg:nth-child(3) {
-  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz5SAZ2hZcUYwLFwZ7MEDmzowvkHsbKp8DXg&usqp=CAU") no-repeat center top/cover;
+  background: url("./img1.jpg") no-repeat center top/cover;
 }
 
 /* --- CgDiv ----*/
@@ -410,19 +406,22 @@ nav {
 }
 .filters {
   margin-top: 20px;
-  display: flex;
-  align-items: center; /* Vertically center items */
+  grid-row: 2/2;
+  justify-self: start;
+  margin-left: 20px;
 }
-
-/* Style for the filters list */
 .filters ul {
-  display: flex; /* Use a flex container for the list */
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(6, minmax(60px, 90px));
   font-size: 15px;
   font-weight: 600;
-  gap: 20px; /* Add spacing between items */
-  list-style: none;
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
+}
+.filtersbtn {
+  align-self: center;
+  justify-self: center;
+  grid-row: 2/2;
+  grid-column: 2/2;
 }
 
 .filterbtn,
@@ -460,14 +459,14 @@ nav {
 .lined {
   color: #1e1e2c;
   opacity: 0.5;
+  list-style: none;
   cursor: pointer;
   transition: all 0.3s ease-out;
-  white-space: nowrap;
-  padding: 0 10px; /* Add padding to links */
-  text-align: center; /* Center text within links */
 }
-
-/* Style for underline effect */
+.lined:hover,
+.selected {
+  opacity: 1;
+}
 .lined::after {
   content: "";
   display: block;
@@ -475,12 +474,10 @@ nav {
   height: 2px;
   background: #1e1e2c;
   transition: width 0.3s;
-  margin-top: 2px; /* Adjust the vertical position of the underline */
 }
-
-/* Improve hover effect for lined links */
 .lined:hover::after {
-  width: 100%; /* Extend the underline to the full width */
+  width: 60%;
+  transition: width 0.3s;
 }
 
 /* --- Filtre ----*/
@@ -536,148 +533,50 @@ nav {
   margin-right: 13px;
   display: inline-block;
 }
-/* Base styles for card container and individual cards (unchanged) */
-
+/*Carads Product*/
 .cardsProduct {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem; /* Adjust the gap as needed */
-  padding: 2.5rem;
-  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  padding: 35px;
+  justify-content: center; /* Center the grid horizontally */
 }
 
 .cardProduct {
-  background-color: #ffffff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 1rem;
-  border-radius: 10px;
-  height: 350px;
-  width: 80%;
-  transition: transform 0.2s;
+  box-shadow: 0 5px 5px -1px rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  max-width: 300px; /* Limit the maximum width */
+  height: 100%; /* Make the height 100% of the parent container */
+  background-position: center;
+  margin: auto; /* Center the card horizontally */
 }
 
-.cardProduct:hover {
-  transform: translateY(-5px);
-}
-
-.cardProduct img {
-  width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
-}
-
-/* Responsive Styles */
-
-/* For screens smaller than 768px (adjust breakpoint as needed) */
+/* Add responsive styles for smaller screens */
 @media screen and (max-width: 768px) {
-  .cardsProduct {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 1rem; /* Reduce padding for smaller screens */
+  .container {
+    padding: 20px; /* Adjust padding for smaller screens */
   }
 
   .cardProduct {
-    width: 90%; /* Make cards slightly narrower */
+    max-width: 100%; /* Allow the card to take full width on smaller screens */
   }
 }
-
-/* For screens smaller than 480px (adjust breakpoint as needed) */
-@media screen and (max-width: 480px) {
-  .cardsProduct {
-    grid-template-columns: 1fr; /* Single column layout for very small screens */
-  }
-
-  .cardProduct {
-    width: 80%;
-    margin: 0 auto;
-    justify-content: center;
-  }
-}
-
-
-.prd_img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #ccc; /* A neutral gray border */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* A gentle shadow */
-  transition: transform 0.2s, border 0.2s, box-shadow 0.2s;
-}
-
-/* Hover effect for a slight zoom, border change, and overlay */
-.prd_img:hover {
-  transform: scale(1.05);
-  border: 3px solid #0077b5; /* A subtle blue border on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
-}
-
-/* Overlay on hover for a color effect */
-.prd_img::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.3); /* A dark overlay on hover */
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.prd_img:hover::before {
-  opacity: 1;
-}
-
-/* Apply a grayscale filter by default */
-.prd_img {
-  filter: grayscale(70%);
-}
-
-/* Remove grayscale filter on hover for full color */
-.prd_img:hover {
-  filter: none;
-}
-
-
-.prd_img_show {
-  width: 100%; /* Adjust to the desired width */
-  max-height: 50vh; /* Maintain a 1:1 aspect ratio for a perfect square */
-  object-fit: cover; /* Ensure the image covers the entire container while maintaining aspect ratio */
-  border: 2px solid #EFEFEF; /* Add a subtle border */
-  border-radius: 10px; /* Rounded corners for a more polished look */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Apply a soft shadow */
-  transition: transform 0.2s, border 0.2s, box-shadow 0.2s, filter 0.2s;
-  filter: grayscale(0%); /* Color image by default */
-}
-
-/* Add a subtle hover effect */
-.prd_img_show:hover {
-  transform: scale(1.05); /* Slightly scale up on hover */
-  border: 2px solid #007BFF; /* Change border color on hover */
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhance the shadow on hover */
-  filter: grayscale(100%); /* Grayscale image on hover */
-}
-
 .QuickView {
   position: relative;
   opacity: 0;
-  top: -50px;
+  top: -80px;
   /* margin-left: 90px; */
-  right: -10px;
+  right: -90px;
   font-weight: 600;
   outline-style: none;
   width: 130px;
-  padding: 9px 0;
+  padding: 11px 0;
   align-items: center;
   border: none;
   background-color: #ffffff;
   box-shadow: 0 5px 5px -1px rgba(0, 0, 0, 0.2);
+
   color: rgb(48, 50, 83);
   border-radius: 30px;
   font-size: 15px;
@@ -704,14 +603,8 @@ nav {
   overflow: hidden;
   width: 100%;
 }
-.tst{
-  padding-top: 10px;
-  width: 100% !important;
-  height: 230px !important;
-}
 .imgProduct {
   transition: all ease 0.4s;
-  object-fit: cover;
 }
 .imgProduct:hover {
   transform: scale(1.1);
@@ -740,17 +633,8 @@ nav {
   cursor: pointer;
   justify-self: end;
   margin-right: 10px;
-  float: right;
 }
 
-.prd_name{
-  color: #0d0d14 !important;
-  font-weight: 600 !important;
-}
-
-/* .productpricecard{
-  float: left;
-} */
 /******************************MEDIA **********/
 @media screen and (max-width: 1280px) {
   nav {
@@ -866,7 +750,7 @@ nav {
     display: inline-block;
   }
   .cardsProduct {
-    margin-left: 0 auto;
+    margin-left: 60px;
   }
   .Cgfilter,
   .filterarea {

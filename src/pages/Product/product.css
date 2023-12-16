@@ -40,9 +40,9 @@
 .img-item:nth-child(3) {
   margin-right: 0;
 }
-.img-item:hover {
+/* .img-item:hover {
   opacity: 0.8;
-}
+} */
 
 .product-content {
   padding: 2rem 1rem;
@@ -106,9 +106,9 @@
   padding: 0 0.3rem;
   transition: all 0.5s ease;
 }
-.product-link:hover {
+/* .product-link:hover {
   opacity: 0.9;
-}
+} */
 .product-rating {
   display: flex;
 }
@@ -207,9 +207,9 @@
   background: rgb(113, 127, 224);
 }
 
-.purchase-info .btn-shop:hover {
+/* .purchase-info .btn-shop:hover {
   background: rgb(59, 74, 168);
-}
+} */
 .social-links {
   display: flex;
   align-items: center;
@@ -228,11 +228,11 @@
   font-size: 0.8rem;
   transition: all 0.5s ease;
 }
-.social-links .social:hover {
+/* .social-links .social:hover {
   background: #12263a;
   border-color: transparent;
   color: #fff;
-}
+} */
 @media screen and (min-width: 992px) {
   .card {
     display: grid;
