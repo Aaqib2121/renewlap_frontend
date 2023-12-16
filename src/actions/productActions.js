@@ -20,30 +20,28 @@ import {
     PRODUCT_CREATE_REVIEW_SUCCESS,
     PRODUCT_CREATE_REVIEW_FAIL,
 } from '../constants/productConstants'
-const baseURL = process.env.REACT_APP_API_BASE_URL || 'https://renewlap.netlify.app';
-
-export const listProducts = (keyword = '') => async (dispatch) => {
+export const listProducts =  (keyword = '') => async(dispatch) => {
     try {
-      dispatch({ type: PRODUCT_LIST_REQUEST });
-      const { data } = await axios.get(`${baseURL}/api/products?keyword=${keyword}`);
-      dispatch({
-        type: PRODUCT_LIST_SUCCESS,
-        payload: data,
-      });
+        dispatch({type : PRODUCT_LIST_REQUEST})
+        const { data }  = await axios.get(`http://15.207.17.33/api/products?keyword=${keyword}`)
+        
+        dispatch({type : PRODUCT_LIST_SUCCESS,
+                  payload : data,
+                 })
     } catch (error) {
-      dispatch({
-        type: PRODUCT_LIST_FAIL,
-        payload:
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message,
-      });
+        dispatch({type: PRODUCT_LIST_FAIL,
+                  payload: 
+                  error.response && error.response.data.message
+                  ? error.response.data.message 
+                  : error.message,
+                })
     }
-  };
+
+}
 export const ListproductbyCg = (Cg) => async (dispatch) =>{
     try {
         dispatch({type : PRODUCT_LIST_REQUEST })
-        const {data} = await axios.get(`${baseURL}/api/products/?Cg=${Cg}`)
+        const {data} = await axios.get(`http://15.207.17.33/api/products/?Cg=${Cg}`)
         dispatch({type : PRODUCT_LIST_SUCCESS , payload : data})
         console.log(data)
         } catch (error) {
@@ -58,7 +56,7 @@ export const ListproductbyCg = (Cg) => async (dispatch) =>{
 export const Listproductbyfiter = (filter) => async (dispatch) =>{
     try {
         dispatch({type : PRODUCT_LIST_REQUEST })
-        const {data} = await axios.get(`${baseURL}/api/products/?filter=${filter}`)
+        const {data} = await axios.get(`http://15.207.17.33/api/products/?filter=${filter}`)
         dispatch({type : PRODUCT_LIST_SUCCESS , payload : data})
         console.log(data)
         } catch (error) {
@@ -73,7 +71,7 @@ export const Listproductbyfiter = (filter) => async (dispatch) =>{
 export const Listproductbyprice = (from,to) => async (dispatch) =>{
     try {
         dispatch({type : PRODUCT_LIST_REQUEST })
-        const {data} = await axios.get(`${baseURL}/api/products/?from=${from}&to=${to}`)
+        const {data} = await axios.get(`http://15.207.17.33/api/products/?from=${from}&to=${to}`)
         dispatch({type : PRODUCT_LIST_SUCCESS , payload : data})
         console.log(data)
         } catch (error) {
@@ -88,7 +86,7 @@ export const listProductDetails =  (id) => async(dispatch) => {
     try {
         dispatch({type : PRODUCT_DETAILS_REQUEST})
         
-        const { data }  = await axios.get(`${baseURL}/api/products/${id}`)
+        const { data }  = await axios.get(`http://15.207.17.33/api/products/${id}`)
         
         dispatch({type : PRODUCT_DETAILS_SUCCESS,
                   payload : data,
@@ -121,7 +119,7 @@ export const DeleteProduct = (id) => async(dispatch, getState) => {
             }
         }
 
-        await axios.delete(`${baseURL}/api/products/${id}`, config) 
+        await axios.delete(`http://15.207.17.33/api/products/${id}`, config) 
         dispatch({
             type: PRODUCT_DELETE_SUCCESS,
                 })
@@ -154,7 +152,7 @@ export const CreateProduct = () => async(dispatch, getState) => {
             }
         }
 
-        const {data} = await axios.post(`${baseURL}/api/products/`,{}, config) 
+        const {data} = await axios.post(`http://15.207.17.33/api/products/`,{}, config) 
         dispatch({
             type: PRODUCT_CREATE_SUCCESS,
             payload : data
@@ -192,7 +190,7 @@ export const UpdateProduct = (product) => async(dispatch, getState) => {
             }
         }
 
-        const {data} = await axios.put(`${baseURL}/api/products/${product._id}`,product, config) 
+        const {data} = await axios.put(`http://15.207.17.33/api/products/${product._id}`,product, config) 
         dispatch({
             type: PRODUCT_UPDATE_SUCCESS,
             payload : data
@@ -227,7 +225,7 @@ export const createproductReview = (productId,review) => async(dispatch, getStat
             }
         }
 
-        await axios.post(`${baseURL}/api/products/${productId}/reviews`,review, config) 
+        await axios.post(`http://15.207.17.33/api/products/${productId}/reviews`,review, config) 
         dispatch({
             type: PRODUCT_CREATE_REVIEW_SUCCESS,
                 })
