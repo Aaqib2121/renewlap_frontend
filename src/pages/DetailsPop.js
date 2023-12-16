@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import {IoCloseOutline} from "react-icons/all"
+import { IoCloseOutline } from 'react-icons/io5';
 import { Image } from "@chakra-ui/react"
 import { hidden } from 'colorette'
 const STYLE_MODAL ={
